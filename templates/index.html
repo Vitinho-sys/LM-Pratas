@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LM Pratas — Joias Femininas</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+    <script src="static/js/script.js"></script>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       MOBILE NAV DRAWER
+  ════════════════════════════════════════ -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#categorias" onclick="closeMobileNav()">Categorias</a>
+    <a href="#catalogo"   onclick="closeMobileNav()">Catálogo</a>
+    <a href="#sobre"      onclick="closeMobileNav()">Sobre</a>
+    <a href="#contato"    onclick="closeMobileNav()">Contato</a>
+    <a href="#" onclick="closeMobileNav(); openAdmin();"
+       style="font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;font-family:var(--font-sans);font-weight:400;color:var(--text-muted);">
+      Admin
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════ -->
+  <header>
+    <a href="#" class="logo">LM <span>Pratas</span></a>
+
+    <nav>
+      <a href="#categorias">Categorias</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#" class="nav-admin" onclick="openAdmin(); return false;">Admin</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" onclick="toggleMobileNav()" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="hero-tag">Coleção 2025 · Prata 925</p>
+      <h1 class="hero-title">Joias que<br>contam <em>histórias</em></h1>
+      <p class="hero-desc">
+        Peças exclusivas em prata 925, artesanalmente selecionadas
+        para a mulher que aprecia elegância e autenticidade.
+      </p>
+      <a href="#catalogo" class="hero-cta">Ver catálogo</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner"></div>
+      <div class="hero-ornament">Coleção Exclusiva</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CATEGORIES
+  ════════════════════════════════════════ -->
+  <section class="categories" id="categorias">
+    <div class="section-header">
+      <span class="section-tag">Explore por</span>
+      <h2 class="section-title">Nossas <em>Categorias</em></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="cat-grid">
+      <button class="cat-item active" onclick="filterCategory('todos', this)">
+        <span class="cat-icon">✦</span>
+        <span class="cat-label">Todos</span>
+      </button>
+      <button class="cat-item" onclick="filterCategory('aneis', this)">
+        <span class="cat-icon">💍</span>
+        <span class="cat-label">Anéis</span>
+      </button>
+      <button class="cat-item" onclick="filterCategory('colares', this)">
+        <span class="cat-icon">📿</span>
+        <span class="cat-label">Colares</span>
+      </button>
+      <button class="cat-item" onclick="filterCategory('brincos', this)">
+        <span class="cat-icon">✨</span>
+        <span class="cat-label">Brincos</span>
+      </button>
+      <button class="cat-item" onclick="filterCategory('pulseiras', this)">
+        <span class="cat-icon">⭕</span>
+        <span class="cat-label">Pulseiras</span>
+      </button>
+      <button class="cat-item" onclick="filterCategory('tornozeleiras', this)">
+        <span class="cat-icon">🔗</span>
+        <span class="cat-label">Tornozeleiras</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PRODUCTS CATALOG
+  ════════════════════════════════════════ -->
+  <section class="products-section" id="catalogo">
+    <div class="section-header">
+      <span class="section-tag">Peças disponíveis</span>
+      <h2 class="section-title">Catálogo <em>Completo</em></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="products-controls">
+      <p class="products-count" id="productsCount">6 peças</p>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Buscar peça…" oninput="searchProducts(this.value)">
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section class="about-section" id="sobre">
+    <div>
+      <h2 class="about-title">Qualidade que você<br>pode <em>sentir</em></h2>
+      <p class="about-desc">
+        Cada peça é selecionada com critério e cuidado. Trabalhamos exclusivamente
+        com prata 925 — o padrão mais puro para joias — garantindo durabilidade,
+        brilho e sofisticação em cada detalhe.
+      </p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">🏅</div>
+          <div>
+            <h4>Prata 925 Certificada</h4>
+            <p>Garantia de autenticidade em todas as peças</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">📦</div>
+          <div>
+            <h4>Embalagem Exclusiva</h4>
+            <p>Cada joia entregue em caixa premium</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">💬</div>
+          <div>
+            <h4>Atendimento Personalizado</h4>
+            <p>Suporte via WhatsApp, tire todas as dúvidas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual-box">
+      <div class="about-stats-grid">
+        <div class="about-stat">
+          <span class="about-stat-num">925</span>
+          <span class="about-stat-label">Pureza da Prata</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">100%</span>
+          <span class="about-stat-label">Autêntico</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">+200</span>
+          <span class="about-stat-label">Clientes Felizes</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">5★</span>
+          <span class="about-stat-label">Avaliação</span>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-align:center;line-height:1.7;">
+        "Comprei meu primeiro anel aqui e me apaixonei.<br>
+        A qualidade é incomparável." — Ana Clara, SP
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section class="contact-section" id="contato">
+    <span class="section-tag">Fale conosco</span>
+    <h2 class="section-title">Interesse em <em>alguma peça?</em></h2>
+    <div class="section-line"></div>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:1rem;font-weight:300;">
+      Entre em contato pelo WhatsApp para tirar dúvidas, fazer encomendas e saber sobre novidades.
+    </p>
+    <a href="#" class="whatsapp-banner" onclick="openWhatsApp('', 'Olá! Vi o catálogo e gostaria de mais informações.'); return false;">
+      <span>💬</span>
+      Falar no WhatsApp
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer>
+    <span class="footer-logo">Lumière Pratas</span>
+    <span class="footer-copy">© 2025 · Joias Femininas em Prata 925</span>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       LIGHTBOX
+  ════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <div class="lightbox-img" id="lbImg"></div>
+      <div class="lightbox-details">
+        <p class="lightbox-cat"  id="lbCat"></p>
+        <h3 class="lightbox-name" id="lbName"></h3>
+        <p class="lightbox-mat"  id="lbMat"></p>
+        <p class="lightbox-desc" id="lbDesc"></p>
+        <p class="lightbox-price" id="lbPrice"></p>
+        <button class="lightbox-btn" id="lbBtn">
+          <span>💬</span> Perguntar no WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ADMIN — LOGIN OVERLAY
+  ════════════════════════════════════════ -->
+  <div class="admin-overlay" id="adminOverlay" onclick="handleAdminOverlayClick(event)">
+    <div class="admin-panel login-panel">
+      <div class="admin-header">
+        <span class="admin-header-title">Área Administrativa</span>
+        <button class="admin-close" onclick="closeAdmin()">✕</button>
+      </div>
+      <div class="login-screen">
+        <h2>Acesso Restrito</h2>
+        <p>Entre com suas credenciais para continuar</p>
+        <div class="admin-form">
+          <div class="form-group">
+            <label>Usuário</label>
+            <input type="text" id="loginUser" placeholder="admin" autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label>Senha</label>
+            <input type="password" id="loginPass" placeholder="••••••••"
+                   autocomplete="current-password"
+                   onkeydown="if(event.key==='Enter') doLogin()">
+          </div>
+          <p class="error-msg" id="loginError"></p>
+          <button class="btn-primary" onclick="doLogin()">Entrar</button>
+          <p class="login-hint">Demo: usuário <strong>admin</strong> · senha <strong>1234</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       ADMIN — DASHBOARD OVERLAY
+  ════════════════════════════════════════ -->
+  <div class="admin-overlay" id="adminDashOverlay" onclick="handleDashOverlayClick(event)">
+    <div class="admin-panel">
+
+      <!-- Header -->
+      <div class="admin-header">
+        <span class="admin-header-title">Painel · Lumière Pratas</span>
+        <div style="display:flex;gap:1rem;align-items:center;">
+          <span style="font-size:0.7rem;color:var(--text-muted);">Bem-vinda, Admin</span>
+          <button class="btn-secondary" onclick="doLogout()"
+                  style="padding:6px 14px;font-size:0.65rem;">Sair</button>
+          <button class="admin-close" onclick="closeAdmin()">✕</button>
+        </div>
+      </div>
+
+      <!-- Layout -->
+      <div class="admin-layout">
+
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+          <p class="admin-sidebar-title">Menu</p>
+          <button class="admin-nav-item active"
+                  data-section="products"
+                  onclick="showAdminSection('products', this)">Produtos</button>
+          <button class="admin-nav-item"
+                  data-section="addproduct"
+                  onclick="showAdminSection('addproduct', this)">Adicionar</button>
+          <button class="admin-nav-item"
+                  data-section="config"
+                  onclick="showAdminSection('config', this)">Configurações</button>
+        </div>
+
+        <!-- Main area -->
+        <div class="admin-main">
+
+          <!-- SECTION: product list -->
+          <div class="admin-section visible" id="section-products">
+            <div class="admin-section-title">
+              <span>Produtos</span>
+              <button class="btn-secondary"
+                      onclick="showAdminSection('addproduct', document.querySelector('[data-section=addproduct]'))">
+                + Novo
+              </button>
+            </div>
+            <div class="admin-products-list" id="adminProductsList"></div>
+          </div>
+
+          <!-- SECTION: add / edit product -->
+          <div class="admin-section" id="section-addproduct">
+            <div class="admin-section-title" id="addProductTitle">Adicionar Produto</div>
+            <div class="admin-form-grid">
+              <input type="hidden" id="editProductId" value="">
+
+              <div class="form-group">
+                <label>Nome da Peça</label>
+                <input type="text" id="prodName" placeholder="Ex: Anel Solitário">
+              </div>
+
+              <div class="form-group">
+                <label>Categoria</label>
+                <select id="prodCat">
+                  <option value="aneis">Anéis</option>
+                  <option value="colares">Colares</option>
+                  <option value="brincos">Brincos</option>
+                  <option value="pulseiras">Pulseiras</option>
+                  <option value="tornozeleiras">Tornozeleiras</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Preço (R$)</label>
+                <input type="number" id="prodPrice" placeholder="89.90" step="0.01" min="0">
+              </div>
+
+              <div class="form-group">
+                <label>Preço Antigo (opcional)</label>
+                <input type="number" id="prodOldPrice" placeholder="120.00" step="0.01" min="0">
+              </div>
+
+              <div class="form-group admin-form-full">
+                <label>Material / Detalhes curtos</label>
+                <input type="text" id="prodMaterial" placeholder="Prata 925 · Banho de ródio">
+              </div>
+
+              <div class="form-group admin-form-full">
+                <label>Descrição</label>
+                <textarea id="prodDesc" placeholder="Descreva a peça em detalhes…"></textarea>
+              </div>
+
+              <div class="form-group admin-form-full">
+                <label>Badge (opcional)</label>
+                <select id="prodBadge">
+                  <option value="">Nenhum</option>
+                  <option value="new">Novidade</option>
+                  <option value="promo">Promoção</option>
+                </select>
+              </div>
+
+              <div class="form-group admin-form-full">
+                <label>Imagem da Peça</label>
+                <div class="upload-area" id="uploadArea">
+                  <input type="file" accept="image/*" id="prodImageFile" onchange="previewImage(event)">
+                  <div class="upload-icon">📷</div>
+                  <p class="upload-label">
+                    Clique para selecionar imagem<br>
+                    <small>JPG, PNG ou WebP</small>
+                  </p>
+                  <img class="upload-preview" id="uploadPreview" alt="Preview da imagem">
+                </div>
+                <input type="hidden" id="prodImageData">
+              </div>
+
+              <div class="admin-form-actions">
+                <button class="btn-secondary" onclick="cancelEditProduct()">Cancelar</button>
+                <button class="btn-primary"   onclick="saveProduct()">Salvar Produto</button>
+              </div>
+
+              <p class="success-msg admin-form-full" id="prodSuccess" style="display:none;"></p>
+            </div>
+          </div>
+
+          <!-- SECTION: config -->
+          <div class="admin-section" id="section-config">
+            <div class="admin-section-title">Configurações da Loja</div>
+            <div class="admin-form-grid">
+
+              <div class="form-group">
+                <label>Nome da Loja</label>
+                <input type="text" id="cfgStoreName" placeholder="Lumière Pratas">
+              </div>
+
+              <div class="form-group">
+                <label>WhatsApp (com DDD, só números)</label>
+                <input type="text" id="cfgWhatsApp" placeholder="11999999999">
+              </div>
+
+              <div class="form-group admin-form-full">
+                <label>Mensagem padrão ao abrir WhatsApp</label>
+                <textarea id="cfgWaMsg"
+                  placeholder="Olá! Vi o catálogo e gostaria de mais informações sobre…"></textarea>
+              </div>
+
+              <div class="admin-form-actions">
+                <button class="btn-primary" onclick="saveConfig()">Salvar Configurações</button>
+              </div>
+
+              <p class="success-msg admin-form-full" id="cfgSuccess" style="display:none;"></p>
+            </div>
+          </div>
+
+        </div><!-- /admin-main -->
+      </div><!-- /admin-layout -->
+    </div><!-- /admin-panel -->
+  </div><!-- /adminDashOverlay -->
+
+  <!-- ═══════════════════════════════════════
+       TOAST
+  ════════════════════════════════════════ -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
