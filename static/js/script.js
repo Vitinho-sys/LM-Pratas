@@ -5,7 +5,7 @@
 // ──────────────────────────────────
 // DATA STORE  (localStorage)
 // ──────────────────────────────────
-const STORE_KEY = 'lumiere_pratas_data';
+const STORE_KEY = 'Conceito_pratas_data';
 
 function loadStore() {
   try { return JSON.parse(localStorage.getItem(STORE_KEY)) || null; }
@@ -58,8 +58,8 @@ function getDefaultProducts() {
 
 function getDefaultConfig() {
   return {
-    storeName: 'Lumière Pratas',
-    whatsapp: '11999999999',
+    storeName: 'Conceito Pratas',
+    whatsapp: '14988365499',
     waMsg: 'Olá! Vi o catálogo e gostaria de mais informações sobre a peça: '
   };
 }

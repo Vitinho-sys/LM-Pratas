@@ -1,17 +1,17 @@
 :root {
-  --silver: #C8C8D4;
-  --silver-light: #EEEEF8;
-  --silver-dark: #6B6B7A;
-  --gold-accent: #3D3EC8;
-  --bg: #F8F8FC;
-  --bg-card: #FFFFFF;
-  --text: #1A1A5E;
-  --text-muted: #6B6B7A;
-  --text-light: #A0A0B8;
-  --border: rgba(61,62,200,0.08);
-  --border-hover: rgba(61,62,200,0.22);
-  --shadow: 0 2px 20px rgba(26,26,94,0.07);
-  --shadow-hover: 0 8px 40px rgba(26,26,94,0.13);
+  --silver: #B8B8B8;
+  --silver-light: #E8E6E3;
+  --silver-dark: #7A7A7A;
+  --gold-accent: #9A9A9A;        /* prata média — substitui o dourado nos destaques */
+  --bg: #F2F1EF;                 /* off-white quente do fundo do logo */
+  --bg-card: #FAFAF9;            /* levemente mais claro */
+  --text: #2C2C2C;               /* grafite escuro elegante */
+  --text-muted: #7A7A7A;         /* prata escura */
+  --text-light: #ADADAD;         /* prata clara */
+  --border: rgba(0,0,0,0.07);
+  --border-hover: rgba(0,0,0,0.16);
+  --shadow: 0 2px 20px rgba(0,0,0,0.05);
+  --shadow-hover: 0 8px 40px rgba(0,0,0,0.10);
   --radius: 2px;
   --radius-lg: 4px;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
